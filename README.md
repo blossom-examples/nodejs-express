@@ -1,4 +1,6 @@
-# Express.js Demo Application
+# NodeJs Express.js Tutorial Deploy on Blossom
+
+A ready-to-deploy NodeJs Express app to get you started quickly on [Blossom](https://blossom-cloud.com)
 
 A modern web application showcasing Express.js capabilities with a beautiful user interface.
 
