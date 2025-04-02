@@ -1,90 +1,32 @@
 # NodeJs Express.js Tutorial Deploy on Blossom
 
-A ready-to-deploy NodeJs Express app to get you started quickly on [Blossom](https://blossom-cloud.com). This modern web application showcases Express.js capabilities with a beautiful user interface and interactive features.
+A ready-to-deploy NodeJs Express app to get you started quickly on [Blossom](https://blossom-cloud.com).
 
-## Features
+## Quick Start
 
-- Modern, responsive UI built with Tailwind CSS
-- Real-time API interactions
-- Visual feedback for all actions
-- Clean, professional design
-- Interactive demo components:
-  - Greeting Generator
-  - Echo Service
-- Error handling and status notifications
-
-## Prerequisites
-
-- Node.js (v14 or higher)
-- npm (comes with Node.js)
-
-## Installation
-
-1. Clone this repository
-2. Navigate to the project directory
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
-
-## Running the Application
-
-### Development Mode (with auto-reload)
 ```bash
-npm run dev
-```
+# Install dependencies
+npm install
 
-### Production Mode
-```bash
+# Run the app
 npm start
 ```
 
-The server will start on port 3000 by default. You can change this by setting the `PORT` environment variable.
-
 Visit `http://localhost:3000` in your browser to see the demo application.
 
-## Demo Features
+<details>
+<summary>Additional Information</summary>
 
-### Greeting Generator
-- Enter your name in the input field
-- Click "Get Greeting" to receive a personalized greeting
-- See the response displayed in real-time
+### Environment Variables
+- `PORT`: Change the port (default: 3000)
 
-### Echo Service
-- Enter any message in the text area
-- Click "Send Message" to see your message echoed back
-- View the complete response including timestamp
-
-## Technical Details
-
-The application is built using:
-- Express.js for the backend
-- Tailwind CSS for styling
-- Vanilla JavaScript for frontend interactions
-- Modern async/await API calls
-
-## API Endpoints
-
-The application exposes two API endpoints:
-
-### GET /hello
-Returns a greeting message. Optional query parameter:
-```
-/hello?name=YourName
-```
-
-### POST /echo
-Echoes back any JSON data sent in the request body.
-
-## Testing the API
-
-You can still test the API endpoints directly using curl:
-
+### API Endpoints
 ```bash
-# Test the hello endpoint
-curl http://localhost:3000/hello
+# Get a greeting
 curl http://localhost:3000/hello?name=John
 
-# Test the echo endpoint
-curl -X POST -H "Content-Type: application/json" -d '{"message":"Hello World"}' http://localhost:3000/echo
+# Echo a message
+curl -X POST -H "Content-Type: application/json" \
+     -d '{"message":"Hello"}' http://localhost:3000/echo
 ```
+</details>
