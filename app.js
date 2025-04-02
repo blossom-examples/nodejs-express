@@ -1,9 +1,13 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Basic route
 app.get('/', (req, res) => {
@@ -47,4 +51,5 @@ app.use((err, req, res, next) => {
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  console.log(`Visit http://localhost:${port} to see the demo`);
 });
