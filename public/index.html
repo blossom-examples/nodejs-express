@@ -29,7 +29,7 @@
       <div class="bg-white rounded-lg shadow-md p-6">
         <h2 class="text-2xl font-semibold mb-4">Greeting Generator</h2>
         <div class="space-y-4">
-          <input type="text" id="nameInput" placeholder="Enter your name"
+          <input type="text" id="nameInput" placeholder="World"
             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
           <button onclick="getGreeting()"
             class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors">
@@ -45,7 +45,7 @@
       <div class="bg-white rounded-lg shadow-md p-6">
         <h2 class="text-2xl font-semibold mb-4">Echo Service</h2>
         <div class="space-y-4">
-          <textarea id="echoInput" placeholder="Enter your message"
+          <textarea id="echoInput" placeholder="Hello, Echo!"
             class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"></textarea>
           <button onclick="sendEcho()"
             class="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors">
@@ -66,8 +66,9 @@
 
   <script>
     async function getGreeting() {
-      const name = document.getElementById('nameInput').value;
-      const url = name ? `/hello?name=${encodeURIComponent(name)}` : '/hello';
+      const nameInput = document.getElementById('nameInput');
+      const name = nameInput.value || nameInput.placeholder;
+      const url = `/hello?name=${encodeURIComponent(name)}`;
 
       try {
         const response = await fetch(url);
@@ -84,7 +85,8 @@
     }
 
     async function sendEcho() {
-      const message = document.getElementById('echoInput').value;
+      const messageInput = document.getElementById('echoInput');
+      const message = messageInput.value || messageInput.placeholder;
 
       try {
         const response = await fetch('/echo', {
